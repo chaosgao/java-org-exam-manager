@@ -1,0 +1,32 @@
+server:
+  port: 8002
+
+spring:
+  profiles:
+    active: @project@
+  application:
+    name: org-exam-company-maneger
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+  mapper-locations: classpath:mapper/*.mapper.xml
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:9000/eureka/
+  instance:
+    instance-id: company-maneger
+
+swagger:
+  title: 云端考试系统
+  description: 沈阳盛世蓝天科技有限公司开发的云端考试系统
+  version: 1.0.0
+  contact:
+    name: 高超
+    email: 888888888@qq.com
+  exclude-path: /error/**

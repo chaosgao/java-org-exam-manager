@@ -1,0 +1,39 @@
+server:
+  port: 8000
+
+spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  application:
+    name: org-springcloud-gateway-manager
+  cloud:
+    gateway:
+      routes:
+        - id: activemq
+          uri: lb://org-exam-activemq-server
+          predicates:
+            - Path=/activemq/**
+          filters:
+            - StripPrefix=1
+        - id: company
+          uri: lb://org-exam-company-maneger
+          predicates:
+            - Path=/company/**
+          filters:
+            - StripPrefix=1
+        - id: wechat
+          uri: lb://org-exam-customer-wechat-manager
+          predicates:
+            - Path=/wechat/**
+          filters:
+            - StripPrefix=1
+
+eureka:
+  instance:
+    instance-id: gateway-manager
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:9000/eureka/
+
+

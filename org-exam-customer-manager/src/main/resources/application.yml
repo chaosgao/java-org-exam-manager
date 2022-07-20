@@ -1,0 +1,15 @@
+server:
+  port: 8003
+
+spring:
+  profiles:
+    active: @project@
+  application:
+    name: org-exam-customer-maneger
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:9000/eureka/
+  instance:
+    instance-id: customer-server

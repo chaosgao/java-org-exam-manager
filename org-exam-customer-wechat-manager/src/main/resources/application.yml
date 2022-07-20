@@ -1,0 +1,19 @@
+server:
+  port: 8004
+
+spring:
+  application:
+    name: org-exam-customer-wechat-manager
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:9000/eureka/
+  instance:
+    instance-id: wechat-manager
+
+swagger:
+  exclude-path: /error/**

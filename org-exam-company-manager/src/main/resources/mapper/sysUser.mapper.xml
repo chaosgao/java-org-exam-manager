@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.exam.mapper.ISysUserMapper">
+    <select id="getById" parameterType="int" resultType="org.exam.bean.SysUser">
+        select * from bu_sys_user where id = #{id};
+    </select>
+    <insert id="insert" parameterType="org.exam.bean.SysUser">
+        insert into bu_sys_user values (null,#{loginName},#{password},#{realName},#{roleId},#{sex},#{tel},#{createTime})
+    </insert>
+    <update id="update" parameterType="org.exam.bean.SysUser">
+        update bu_sys_user
+        <set>
+            <if test="loginName != null">
+                login_name = #{loginName},
+            </if>
+
+            <if test="password != null">
+                password = #{password},
+            </if>
+            <if test="realName != null">
+                real_name = #{realName},
+            </if>
+            <if test="roleId != null">
+                role_id = #{roleId},
+            </if>
+            <if test="sex != null">
+                sex = #{sex},
+            </if>
+            <if test="tel != null">
+                tel = #{tel},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime},
+            </if>
+        </set>
+         where id = #{id};
+    </update>
+    <delete id="delete" parameterType="int">
+        delete from bu_sys_user where id = #{id}
+    </delete>
+</mapper>

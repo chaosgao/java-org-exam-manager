@@ -1,0 +1,22 @@
+server:
+  port: 8018
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:9000/eureka/
+  instance:
+    instance-id: config
+
+spring:
+  application:
+    name: org-springcloud-config-manager
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://gitee.com/chaosgao/org-springcloud-config-manager.git
+          search-paths: org-springcloud-config-manager
+          force-pull: true
+      label: master
+
