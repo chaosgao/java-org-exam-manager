@@ -29,6 +29,7 @@ eureka:
   client:
     service-url:
       defaultZone: http://127.0.0.1:9000/eureka/
+#      defaultZone: http://AAA.com:20001/eureka/,http://BBB.com:20002/eureka/,http://CCC.com:20003/eureka/
   instance:
     instance-id: activemq-server
     prefer-ip-address: true

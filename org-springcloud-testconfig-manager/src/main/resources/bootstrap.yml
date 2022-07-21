@@ -17,3 +17,5 @@ eureka:
   client: #将客户端注册到 eureka 服务列表内
     service-url:
       defaultZone: http://127.0.0.1:9000/eureka/  #将服务注册到 Eureka 集群
+    register-with-eureka: false
+    fetch-registry: true

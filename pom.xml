@@ -22,6 +22,10 @@
         <module>org-springcloud-eureka-manager</module>
         <module>org-springcloud-config-manager</module>
         <module>org-springcloud-testconfig-manager</module>
+        <module>org-exam-ribbon-manager</module>
+        <module>replicas-eureka-server1</module>
+        <module>replicas-eureka-server2</module>
+        <module>replicas-eureka-server3</module>
     </modules>
 
     <properties>
