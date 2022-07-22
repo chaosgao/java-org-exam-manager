@@ -1,18 +1,20 @@
 package org.exam.controller;
 
+import com.netflix.hystrix.contrib.javanica.annotation.DefaultProperties;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import org.exam.feign.IActiveMQClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.exam.feign.ActiveMQClient;
 
 @RestController
 @RequestMapping("hello")
 public class HelloController {
 
     @Autowired
-    private ActiveMQClient activeMQClient;
+    private IActiveMQClient activeMQClient;
 
     @GetMapping("sendMessage")
     public void sendMessage(){
@@ -29,4 +31,8 @@ public class HelloController {
         activeMQClient.sendMessage1(sendMessage);
     }
 
+    @GetMapping("showInfo/{time}")
+    public String showInfo(@PathVariable Integer time) {
+        return activeMQClient.showInfo(time);
+    }
 }

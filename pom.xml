@@ -26,6 +26,7 @@
         <module>replicas-eureka-server1</module>
         <module>replicas-eureka-server2</module>
         <module>replicas-eureka-server3</module>
+        <module>org-springcloud-hystrix-dashboard-manager</module>
     </modules>
 
     <properties>
@@ -60,7 +61,7 @@
 
     </dependencies>
 
-    <!-- 在主工程中使用 dependencyManagement 声明 Spring Cloud 的版本，
+    <!--SpringCloud微服务 在主工程中使用 dependencyManagement 声明 Spring Cloud 的版本，
     这样工程内的 Module 中引入 Spring Cloud 组件依赖时，就不必在声明组件的版本信息
     保证 Spring Cloud 各个组件一致性-->
     <dependencyManagement>

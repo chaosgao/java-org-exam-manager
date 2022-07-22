@@ -1,0 +1,10 @@
+server:
+  port: 10091
+
+#http://eureka7001.com:10091/hystrix 熔断器监控页面
+# localhost:8004//actuator/hystrix.stream 监控地址
+
+hystrix:
+  dashboard:
+    proxy-stream-allow-list:
+      - "127.0.0.1"

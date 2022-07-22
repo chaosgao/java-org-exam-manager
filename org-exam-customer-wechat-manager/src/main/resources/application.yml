@@ -17,3 +17,32 @@ eureka:
 
 swagger:
   exclude-path: /error/**
+
+######################配置请求超时时间##########################
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 6000
+      circuitBreaker:
+        enabled: true #是否开启熔断器
+        requestVolumeThreshold: 10 #统计时间窗内请求次数
+        sleepWindowInMilliseconds: 10000 #休眠时间窗口期
+        errorThresholdPercentage: 60 #在统计时间窗口期以内，请求失败率达到 60% 时进入熔断状态
+      metrics:
+        rollingStats:
+          timeInMilliseconds: 1000 #统计时间窗
+
+feign:
+  circuitbreaker:
+    enabled: true #开启客户端 hystrix
+
+management:
+  server:
+    port: 1098
+  endpoints:
+    web:
+      exposure:
+        include: "*"
