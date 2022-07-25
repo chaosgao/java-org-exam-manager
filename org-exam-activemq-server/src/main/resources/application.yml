@@ -12,7 +12,7 @@ spring:
     user: admin
     password: admin
     packages:
-      trust-all: true
+      trust-all: true #信任所有的包
   application:
     name: org-exam-activemq-server
 
